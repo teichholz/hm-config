@@ -34,6 +34,7 @@
 					./nvim.nix
 					./emacs.nix
 					./dev/nix.nix
+					./dev/python.nix
         ];
 
         # Optionally use extraSpecialArgs
