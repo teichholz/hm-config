@@ -1,8 +1,9 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
+let configDir = builtins.toString config.variables.configDir; in  
 {
-    user.packages = with pkgs; [
-      unstable.gitAndTools.gh
+    home.packages = with pkgs; [
+      gitAndTools.gh
       gitAndTools.git-open
       gitAndTools.diff-so-fancy
       act
