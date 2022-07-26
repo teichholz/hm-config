@@ -30,6 +30,7 @@
 					./kitty.nix
 					./zsh.nix
 					./tmux.nix
+					./git.nix
 					./nvim.nix
 					./emacs.nix
 					./dev/nix.nix
