@@ -25,6 +25,7 @@
           ./home.nix
 					./variables.nix
 					./fonts.nix
+					./gtk.nix
 					./xdg.nix
 					./kitty.nix
 					./zsh.nix
