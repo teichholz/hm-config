@@ -47,7 +47,7 @@ with lib;
 			zsh fzf bat exa tree rsync parted fd ripgrep htop 
 			tldr httpie ncdu jq glances pandoc nix-zsh-completions
 			xdotool entr appimage-run feh fasd cargo nodePackages.npm nodejs
-			direnv shellcheck python
+			direnv shellcheck python cmake binutils coreutils
 		];
 
 		zsh.path = builtins.toString (config.variables.configDir + /bin);
