@@ -44,7 +44,7 @@ with lib;
 
 	config = {
 		home.packages = with pkgs; [ 
-			zsh fzf bat exa tree rsync parted fd ripgrep htop 
+			zsh dash fzf bat exa tree rsync parted fd ripgrep htop 
 			tldr httpie ncdu jq glances pandoc nix-zsh-completions
 			xdotool entr appimage-run feh fasd cargo nodePackages.npm nodejs
 			direnv shellcheck python cmake binutils coreutils
