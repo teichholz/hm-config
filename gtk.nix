@@ -24,6 +24,8 @@ let theme = pkgs.dracula-theme; in
 		/* 	}; */
 		/* }; */
 
+		home.packages = [ theme pkgs.feh ];
+
 		gtk.enable = true;
 
 		gtk.cursorTheme = {
@@ -43,13 +45,16 @@ let theme = pkgs.dracula-theme; in
 		};
 
 		home.file.".themes" = {
-			source = /home/tim/.nix-profile/share/themes;
+			source = theme + /share/themes;
 			recursive = true;
 		};
 
 		home.file.".icons" = {
-			source = /home/tim/.nix-profile/share/icons;
+			source = theme + /share/icons;
 			recursive = true;
 		};
+
+		xsession.enable = true;
+		xsession.initExtra = "feh --bg-scale --randomize ${builtins.toString ./wallpaper }/*";
 	};
 }

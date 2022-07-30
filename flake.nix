@@ -23,18 +23,18 @@
         # the path to your home.nix.
         modules = [
           ./home.nix
-					./variables.nix
-					./fonts.nix
-					./gtk.nix
-					./xdg.nix
-					./kitty.nix
-					./zsh.nix
-					./tmux.nix
-					./git.nix
-					./nvim.nix
-					./emacs.nix
-					./dev/nix.nix
-					./dev/python.nix
+				./variables.nix
+				./fonts.nix
+				./gtk.nix
+				./xdg.nix
+				./kitty.nix
+				./zsh.nix
+				./nvim.nix
+				./tmux.nix
+				./git.nix
+				#./emacs.nix
+				# ./dev/nix.nix
+				#./dev/python.nix
         ];
 
         # Optionally use extraSpecialArgs

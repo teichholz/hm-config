@@ -2,6 +2,10 @@
 
 let nvimDir = builtins.toString (config.variables.configHome + /nvim); in {
 
+	zsh.env = {
+		EDITOR="nvim";
+	};
+
 	# Clone nvim repo if it does not exist
 	home.activation = {
 		cloneNvimIfMissing = lib.hm.dag.entryAfter ["writeBoundary"] ''
