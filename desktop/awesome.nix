@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }: 
 
 {
+	imports = [ ./rofi.nix ];
+
+	
+	config = {
+
 		home.packages = with pkgs; [rofi dunst];
 
 		services.picom = {
@@ -23,4 +28,5 @@
 				blur-strength = 320;
 			};
 		};
+	};
 }

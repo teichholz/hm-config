@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 cd $HOME
-DIR="$(fd -L -d 4 --type f --type d . | rofi -dmenu -i -p "~/" -theme theme/filemenu.rasi)"
+DIR="$(fd -L -d 4 --type f --type d . | rofi -dmenu -i -p "~/" -theme $ROFI_THEMES/filemenu)"
 if [[ $1 == "-x" ]]; then
   xdg-open "$DIR"
 else

@@ -41,15 +41,15 @@
         modules = [
 					./home.nix
 					./variables.nix
-					./fonts.nix
-					./gtk.nix
-					./xdg.nix
-					./kitty.nix
-					./zsh.nix
-					./nvim.nix
-					./tmux.nix
-					./git.nix
-					# ./awesome.nix
+					./desktop/fonts.nix
+					./desktop/gtk.nix
+					./shell/xdg.nix
+					./desktop/kitty.nix
+					./shell/zsh.nix
+					./editor/nvim.nix
+					./shell/tmux.nix
+					./shell/git.nix
+					./desktop/awesome.nix
         ];
 				extraSpecialArgs = {  };
       };

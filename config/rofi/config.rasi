@@ -41,11 +41,12 @@ configuration {
 /**** Layout ****/
 window {
   width:    1000px;
-  y-offset: -50px;
+  y-offset: -250px;
   anchor:   north;
   location: center;
   border: 1px;
-  border-radius: 6px 6px 0 0;
+	/* does not work well with awesome */
+  /* border-radius: 12px 12px 0 0; */
   children: [ inputbar, listview ];
 
 }
@@ -53,29 +54,11 @@ window {
 listview {
   lines: 12;
   fixed-height: false;
-  /* reverse: true; */
   columns: 2;
   scrollbar: true;
   spacing: 1px;
-  /* Remove strange gap between listview and inputbar */
-  margin: -2px 0 0;
 }
 
-/*
-  TODO Not supported in stable branch of rofi
-  @media only (max-height: 1080px) {
-    window {
-      y-offset: -30%;
-    }
-    listview {
-      lines: 14;
-    }
-  }
-*/
-
-scrollbar {
-  handle-width: 1px;
-}
 inputbar {
   children: [ textbox-icon, prompt, entry ];
   border: 0 0 0;

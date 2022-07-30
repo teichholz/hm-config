@@ -50,7 +50,7 @@ with lib;
 			direnv shellcheck python cmake binutils coreutils
 		];
 
-		zsh.path = builtins.toString (config.variables.configDir + /bin);
+		zsh.path = builtins.toString (config.variables.dotDir + /bin);
 
 		zsh.alias = {
 			dot = "home-manager switch --flake ${builtins.toString config.variables.home}/.config/nixpkgs#${config.home.username} --impure";
