@@ -32,18 +32,24 @@
 				./dev/nix.nix
 				./dev/python.nix
 			];
+			writing = [
+			  ./emacs.nix
+			];
     in {
       homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = (basics ./home.nix) ++ [
-					dev
-        ];
-				extraSpecialArgs = {  };
-      };
-      homeConfigurations.tim-lenovo = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = (basics ./home.nix) ++[
-					./awesome.nix
+        modules = [
+					./home.nix
+					./variables.nix
+					./fonts.nix
+					./gtk.nix
+					./xdg.nix
+					./kitty.nix
+					./zsh.nix
+					./nvim.nix
+					./tmux.nix
+					./git.nix
+					# ./awesome.nix
         ];
 				extraSpecialArgs = {  };
       };
