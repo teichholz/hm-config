@@ -15,14 +15,8 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
 			lib = pkgs.lib;
-    in {
-      homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./home.nix
+			basics = home: [
+				 home
 				./variables.nix
 				./fonts.nix
 				./gtk.nix
@@ -30,15 +24,27 @@
 				./kitty.nix
 				./zsh.nix
 				./nvim.nix
+				./emacs.nix
 				./tmux.nix
 				./git.nix
-				#./emacs.nix
-				# ./dev/nix.nix
-				#./dev/python.nix
+			];
+			dev = [
+				./dev/nix.nix
+				./dev/python.nix
+			];
+    in {
+      homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = (basics ./home.nix) ++ [
+					dev
         ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+				extraSpecialArgs = {  };
+      };
+      homeConfigurations.tim-lenovo = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = (basics ./home.nix) ++[
+					./awesome.nix
+        ];
 				extraSpecialArgs = {  };
       };
     };

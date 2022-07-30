@@ -3,28 +3,8 @@
 let theme = pkgs.dracula-theme; in
 {
 	config = {
-		/* services.picom = { */
-		/* 	enable = true; */
-		/* 	fade = true; */
-		/* 	fadeDelta = 1; */
-		/* 	fadeSteps = [ 0.01 0.012 ]; */
-		/* 	shadow = true; */
-		/* 	shadowOffsets = [ (-10) (-10) ]; */
-		/* 	shadowOpacity = 0.22; */
-		/* 	# activeOpacity = "1.00"; */
-		/* 	# inactiveOpacity = "0.92"; */
-		/* 	settings = { */
-		/* 		corner-radius = 0.5; */
-		/* 		shadow-radius = 12; */
-		/* 		blur-background = true; */
-		/* 		blur-background-frame = true; */
-		/* 		blur-background-fixed = true; */
-		/* 		blur-kern = "7x7box"; */
-		/* 		blur-strength = 320; */
-		/* 	}; */
-		/* }; */
 
-		home.packages = [ theme pkgs.feh ];
+		home.packages = [ theme ];
 
 		gtk.enable = true;
 
@@ -54,7 +34,7 @@ let theme = pkgs.dracula-theme; in
 			recursive = true;
 		};
 
-		xsession.enable = true;
-		xsession.initExtra = "feh --bg-scale --randomize ${builtins.toString ./wallpaper }/*";
+		/* xsession.enable = true; */
+		/* xsession.initExtra = "feh --bg-scale --randomize ${builtins.toString ./wallpaper }/*"; */
 	};
 }
