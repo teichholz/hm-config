@@ -48,6 +48,7 @@ with lib;
 			tldr httpie ncdu jq glances pandoc nix-zsh-completions
 			xdotool entr appimage-run feh fasd cargo nodePackages.npm nodejs
 			direnv shellcheck python cmake binutils coreutils
+			bitwarden-cli
 		];
 
 		zsh.path = builtins.toString (config.variables.dotDir + /bin);

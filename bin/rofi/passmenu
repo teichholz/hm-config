@@ -17,7 +17,7 @@ set -e
 shopt -s nullglob globstar
 
 askpass () {
-  zenity --password --title="sudo password prompt" --timeout=10
+  systemd-ask-password --keyname "bw" --accept-cached
 }
 
 # checks if alle dependencies are there
@@ -66,7 +66,7 @@ _do_rofi() {
 
 PASS=$(_do_rofi)
 
-if [ -n $PASS ]; then
+if [ -n "$PASS" ]; then
   $MSG_CMD "Success!" "Password has been copied to clipboard"
   echo $PASS | xclip -selection clipboard -in
 else
