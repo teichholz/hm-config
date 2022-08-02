@@ -49,6 +49,7 @@
 					./editor/nvim.nix
 					./shell/tmux.nix
 					./shell/git.nix
+					./editor/emacs.nix
 					./desktop/awesome.nix
         ];
 				extraSpecialArgs = {  };

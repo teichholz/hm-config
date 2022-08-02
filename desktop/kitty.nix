@@ -6,7 +6,7 @@ let theme = "${pkgs.kitty-themes}/themes/Dracula.conf"; in
 
 	xdg.configFile = with config.variables; {
 		kitty = { 
-			source = configDir + /kitty;
+			source = dotDir + /config/kitty;
 			recursive = true; 
 		};
 

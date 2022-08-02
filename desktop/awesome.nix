@@ -6,6 +6,9 @@
 	config = {
 
 		home.packages = with pkgs; [ 
+			arandr
+
+			# dependencies
 			acpi acpica-tools # system tools i.e battery
 			lxappearance # MAYBE DELETE appearance tool for gtk3
 			gpick # colorpicker
@@ -23,7 +26,7 @@
 			mpv mpd mpc-cli mpdris2 ncmpcpp playerctl # music
 			python39Packages.mutagen
 			
-			## fonts
+			## font
 			roboto
 			material-design-icons
 		];
@@ -34,29 +37,29 @@
 			recursive = true;
 		};
 
-		services.mpd = {
-			enable = true;
-		};
+		/* services.mpd = { */
+		/* 	enable = true; */
+		/* }; */
 
-		services.picom = {
-			enable = true;
-			fade = true;
-			fadeDelta = 1;
-			fadeSteps = [ 0.01 0.012 ];
-			shadow = true;
-			shadowOffsets = [ (-10) (-10) ];
-			shadowOpacity = 0.22;
-			# activeOpacity = "1.00";
-			# inactiveOpacity = "0.92";
-			settings = {
-				corner-radius = 0.5;
-				shadow-radius = 12;
-				blur-background = true;
-				blur-background-frame = true;
-				blur-background-fixed = true;
-				blur-kern = "7x7box";
-				blur-strength = 320;
-			};
-		};
+		/* services.picom = { */
+		/* 	enable = true; */
+		/* 	fade = true; */
+		/* 	fadeDelta = 1; */
+		/* 	fadeSteps = [ 0.01 0.012 ]; */
+		/* 	shadow = true; */
+		/* 	shadowOffsets = [ (-10) (-10) ]; */
+		/* 	shadowOpacity = 0.22; */
+		/* 	# activeOpacity = "1.00"; */
+		/* 	# inactiveOpacity = "0.92"; */
+		/* 	settings = { */
+		/* 		corner-radius = 0.5; */
+		/* 		shadow-radius = 12; */
+		/* 		blur-background = true; */
+		/* 		blur-background-frame = true; */
+		/* 		blur-background-fixed = true; */
+		/* 		blur-kern = "7x7box"; */
+		/* 		blur-strength = 320; */
+		/* 	}; */
+		/* }; */
 	};
 }
