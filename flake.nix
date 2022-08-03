@@ -51,6 +51,7 @@
 					./shell/git.nix
 					./editor/emacs.nix
 					./desktop/awesome.nix
+					/* ./dev/flutter.nix */
         ];
 				extraSpecialArgs = {  };
       };
