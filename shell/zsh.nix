@@ -46,9 +46,9 @@ with lib;
 		home.packages = with pkgs; [ 
 			zsh dash fzf bat exa tree rsync parted fd ripgrep htop 
 			tldr httpie ncdu jq glances pandoc nix-zsh-completions
-			xdotool entr appimage-run feh fasd cargo nodePackages.npm nodejs
+			xdotool entr appimage-run feh fasd cargo  
 			direnv shellcheck python cmake binutils coreutils
-			bitwarden-cli
+			bitwarden-cli watchman
 		];
 
 		zsh.path = builtins.toString (config.variables.dotDir + /bin);

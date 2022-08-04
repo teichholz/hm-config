@@ -1,13 +1,16 @@
-{ pkgs, ... }: 
+{ pkgs, lib, ... }: 
 
-let npmDir = "$XDG_DATA_HOME/npm-packages"; in {
+let npmDir = "$HOME/.cache/share/npm-packages"; in {
   
-  zsh.rcInit = ''npm config set prefix ${npmDir}'';
+  /* zsh.rcInit = '' */
+  /*   command -v npm >/dev/null 2>&1 && npm config set prefix ${npmDir} */
+  /* ''; */
 
-  zsh.path = npmDir;
+  zsh.path = npmDir + "/bin";
 
   zsh.env = {
-    MANPATH = ''export MANPATH="$\{MANPATH-$(manpath)}:${npmDir}/share/man"'';
+    MANPATH = ''''${MANPATH-$(manpath)}:${npmDir}/share/man'';
+    NPM_CONFIG_PREFIX="${npmDir}";
   };
 
 	home.activation = {
