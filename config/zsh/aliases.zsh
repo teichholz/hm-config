@@ -14,7 +14,7 @@ alias nr='sudo nixos-rebuild'
 alias o='xdg-open'
 alias y='xclip -selection clipboard -in'
 alias p='xclip -selection clipboard -ou'
-alias egit="ig emacs --eval '(magit)' &"
+alias egit="run emacs --eval '(magit)'"
 
 if command -v wget >/dev/null; then
 	alias wget='wget -c'
@@ -24,6 +24,7 @@ if command -v a >/dev/null; then
 	alias O='a -e xdg-open' # quick opening files with xdg-open
 	alias e='f -e nvim'
 	alias v='f -e nvim'
+  alias z='fasd_cd -d'
 fi
 
 if command -v exa >/dev/null; then
@@ -52,8 +53,8 @@ run() {
 }
 
 dot() {
-  local user={$1:-$(whoami)}; shift;
-  home-manager switch --flake --impure "$XDG_CONFIG_HOME/nixpkgs#$user" "$@"
+  local user=${1:-$(whoami)}; [ $# -gt 0 ] && shift;
+  home-manager switch --flake "$XDG_CONFIG_HOME"/nixpkgs#"$user" --impure "$@"
 }
 
 r() {

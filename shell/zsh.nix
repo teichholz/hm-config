@@ -104,10 +104,10 @@ with lib;
 
 		home.activation = {
 			cleanZgenom = lib.hm.dag.entryAfter ["writeBoundary"] ''
-				$DRY_RUN_CMD rm -rf $${ZSH_CACHE}
-				$DRY_RUN_CMD rm -fv $${ZGEN_DIR}/init.zsh{,.zwc}
-				$DRY_RUN_CMD rm -fv $${ZDOTDIR}/*.zwc
-				$DRY_RUN_CMD rm -fv $${ZDOTDIR/.*.zwc
+				$DRY_RUN_CMD rm -rf ${ZSH_CACHE}
+				$DRY_RUN_CMD rm -fv ${ZGEN_DIR}/init.zsh{,.zwc}
+				$DRY_RUN_CMD rm -fv ${ZDOTDIR}/*.zwc
+				$DRY_RUN_CMD rm -fv ${ZDOTDIR}/.*.zwc
 			'';
 		};
 	};
