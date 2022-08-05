@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 
-let configDir = builtins.toString config.variables.configDir; in  
+let configDir = builtins.toString (config.variables.dotDir + /config); in
 {
     home.packages = with pkgs; [
       gitAndTools.gh

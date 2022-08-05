@@ -50,9 +50,26 @@
 					./shell/tmux.nix
 					./shell/git.nix
 					./editor/emacs.nix
-					./desktop/awesome.nix
-					/* ./dev/flutter.nix */
 					./dev/node.nix
+        ];
+				extraSpecialArgs = {  };
+      };
+
+      homeConfigurations.tim_work = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+					./home_work.nix
+					./variables.nix
+					./desktop/fonts.nix
+					./desktop/gtk.nix
+					./shell/xdg.nix
+					./desktop/kitty.nix
+					./shell/zsh.nix
+					./editor/nvim.nix
+					./shell/git.nix
+          {
+            zsh.rcInit = ''source $HOME/.nix-profile/etc/profile.d/nix.sh;'';
+          }
         ];
 				extraSpecialArgs = {  };
       };

@@ -1,6 +1,10 @@
 { config, pkgs, lib,  ... }:
 
 
+let
+    ZDOTDIR   = "$XDG_CONFIG_HOME/zsh";
+    ZSH_CACHE = "$XDG_CACHE_HOME/zsh";
+    ZGEN_DIR  = "$XDG_DATA_HOME/zgenom"; in
 with lib;
 {
   options = 
@@ -44,11 +48,12 @@ with lib;
 
 	config = {
 		home.packages = with pkgs; [ 
-			zsh dash fzf bat exa tree rsync parted fd ripgrep htop 
-			tldr httpie ncdu jq glances pandoc nix-zsh-completions
-			xdotool entr appimage-run feh fasd cargo  
+			dash fzf bat exa tree rsync parted fd ripgrep htop
+			tldr httpie ncdu jq glances pandoc
+			xdotool entr appimage-run feh fasd cargo
 			direnv shellcheck python cmake binutils coreutils
 			bitwarden-cli watchman
+            /* nix-zsh-completions */
 		];
 
 		zsh.path = builtins.toString (config.variables.dotDir + /bin);
@@ -59,10 +64,10 @@ with lib;
 
 		zsh.rcInit = "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh";
 
-		zsh.env = with config.systemd.user.sessionVariables; rec {
-      ZDOTDIR   = "$XDG_CONFIG_HOME/zsh";
-      ZSH_CACHE = "$XDG_CACHE_HOME/zsh";
-      ZGEN_DIR  = "$XDG_DATA_HOME/zgenom";		
+		zsh.env =  {
+          ZDOTDIR=ZDOTDIR;
+          ZSH_CACHE=ZSH_CACHE;
+          ZGEN_DIR=ZGEN_DIR;
 		};
 
 		home.file.".zshenv".text = 
@@ -103,10 +108,10 @@ with lib;
 
 		home.activation = {
 			cleanZgenom = lib.hm.dag.entryAfter ["writeBoundary"] ''
-				$DRY_RUN_CMD rm -rf $ZSH_CACHE
-				$DRY_RUN_CMD rm -fv $ZGEN_DIR/init.zsh{,.zwc}		
-				$DRY_RUN_CMD rm -fv $ZDOTDIR/*.zwc		
-				$DRY_RUN_CMD rm -fv $ZDOTDIR/.*.zwc		
+				$DRY_RUN_CMD rm -rf $${ZSH_CACHE}
+				$DRY_RUN_CMD rm -fv $${ZGEN_DIR}/init.zsh{,.zwc}
+				$DRY_RUN_CMD rm -fv $${ZDOTDIR}/*.zwc
+				$DRY_RUN_CMD rm -fv $${ZDOTDIR/.*.zwc
 			'';
 		};
 	};

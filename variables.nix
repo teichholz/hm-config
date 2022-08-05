@@ -14,7 +14,7 @@ in
 
   config = {
 		variables = rec {
-		  home = /home/tim;
+		  home = /. + config.home.homeDirectory;
 			configHome = home + /.config;
 			dotDir = configHome + /nixpkgs;
 			configDir = configHome + /dotfiles/config;
