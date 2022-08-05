@@ -14,7 +14,7 @@ alias nr='sudo nixos-rebuild'
 alias o='xdg-open'
 alias y='xclip -selection clipboard -in'
 alias p='xclip -selection clipboard -ou'
-alias egit="emacs --eval '(magit)'"
+alias egit="ig emacs --eval '(magit)' &"
 
 if command -v wget >/dev/null; then
 	alias wget='wget -c'
@@ -51,10 +51,9 @@ run() {
   ig $* &
 }
 
-org() {
-  file=$(mktemp)
-  p > $file
-  pandoc --from mediawiki --to org $file | y
+dot() {
+  local user={$1:-$(whoami)}; shift;
+  home-manager switch --flake --impure "$XDG_CONFIG_HOME/nixpkgs#$user" "$@"
 }
 
 r() {

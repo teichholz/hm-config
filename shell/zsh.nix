@@ -58,10 +58,6 @@ with lib;
 
 		zsh.path = builtins.toString (config.variables.dotDir + /bin);
 
-		zsh.alias = {
-			dot = "home-manager switch --flake ${builtins.toString config.variables.home}/.config/nixpkgs#${config.home.username} --impure";
-		};
-
 		zsh.rcInit = "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh";
 
 		zsh.env =  {
