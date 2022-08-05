@@ -24,14 +24,14 @@ let theme = pkgs.dracula-theme; in
 			name = "Dracula";
 		};
 
-		home.file.".themes" = {
-			source = theme + /share/themes;
-			recursive = true;
+		home.file.".themes/Dracula" = {
+			source = theme + /share/themes/Dracula;
+			# recursive = true;
 		};
 
-		home.file.".icons" = {
-			source = theme + /share/icons;
-			recursive = true;
+		home.file.".icons/Dracula-cursors" = {
+			source = theme + /share/icons/Dracula-cursors;
+			# recursive = true;
 		};
 
 		/* xsession.enable = true; */
