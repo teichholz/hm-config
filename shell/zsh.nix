@@ -90,7 +90,7 @@ with lib;
 
 		xdg.configFile = {
       # Write it recursively so other modules can write files to it
-      "zsh" = { source = config.variables.configDir + /zsh; recursive = true; };
+      "zsh" = { source = config.variables.dotDir + /config/zsh; recursive = true; };
 
 			"zsh/extra.zshrc".text = 
 			  let rcFiles = concatMapStrings (path: "source '${path}'\n") config.zsh.rcFiles; in
