@@ -2,6 +2,8 @@
 
 let nvimDir = builtins.toString (config.variables.configHome + /nvim); in {
 
+    home.packages = [ pkgs.neovim ];
+
 	zsh.env = {
 		EDITOR="nvim";
 	};

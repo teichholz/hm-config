@@ -14,6 +14,7 @@ alias nr='sudo nixos-rebuild'
 alias o='xdg-open'
 alias y='xclip -selection clipboard -in'
 alias p='xclip -selection clipboard -ou'
+alias egit="emacs --eval '(magit)'"
 
 if command -v wget >/dev/null; then
 	alias wget='wget -c'

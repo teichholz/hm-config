@@ -69,6 +69,9 @@
 					./shell/git.nix
           {
             zsh.rcInit = ''source $HOME/.nix-profile/etc/profile.d/nix.sh;'';
+	    zsh.env = {
+		TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo"; 
+	    };
           }
         ];
 				extraSpecialArgs = {  };
