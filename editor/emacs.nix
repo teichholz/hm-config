@@ -6,6 +6,8 @@ let emacsDir = builtins.toString (config.variables.home + /.emacs.d);
 in {
 	config.zsh.path = binDir;
 
+  config.home.packages = with pkgs; [ ledger ledger-web ];
+
 	config.zsh.env = {
 	 	DOOMDIR = configDir;
 	};
