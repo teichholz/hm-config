@@ -1,5 +1,8 @@
 fpath+=( $ZDOTDIR/completions )
 
+# cht.sh completion
+
+
 # Don't offer history completion; we have fzf, C-r, and
 # zsh-history-substring-search for that.
 ZSH_AUTOSUGGEST_STRATEGY=(completion)

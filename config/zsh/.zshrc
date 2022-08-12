@@ -38,6 +38,6 @@ if [[ $TERM != dumb ]]; then
 	[ -f $ZDOTDIR/extra.zshrc ] && source $ZDOTDIR/extra.zshrc
 
 	_cache fasd --init posix-alias zsh-{hook,{c,w}comp{,-install}}
-	eval "$(direnv hook zsh)"
 	autopair-init
+	eval "$(direnv hook zsh)"
 fi

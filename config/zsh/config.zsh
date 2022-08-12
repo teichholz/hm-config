@@ -1,13 +1,14 @@
 # fasd
 if command -v fasd > /dev/null; then
 	export _FASD_DATA="$XDG_CACHE_HOME/fasd"
-	export _FASD_VIMINFO="$XDG_CACHE_HOME/viminfo"
+	# export _FASD_VIMINFO="$HOME/.viminfo" # this is the default
 	export _FASD_BACKENDS="native recently-used current viminfo"
 	local shell; for shell in dash zsh; do
   _FASD_SHELL="$(command -v $shell)" && break
 	done
 	_cache fasd --init auto
 fi 
+
 
 # zsh-vi-mode
 export ZVM_INIT_MODE=sourcing

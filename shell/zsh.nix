@@ -49,7 +49,7 @@ with lib;
 	config = {
 		home.packages = with pkgs; [ 
 			dash fzf bat exa tree rsync parted fd ripgrep htop
-			tldr httpie ncdu jq glances pandoc
+			tldr cht-sh httpie ncdu jq glances pandoc
 			xdotool entr appimage-run feh fasd cargo
 			direnv shellcheck python cmake binutils coreutils
 			bitwarden-cli watchman

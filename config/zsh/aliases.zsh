@@ -1,4 +1,5 @@
 alias ..='cd ..'
+
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
@@ -15,6 +16,7 @@ alias o='xdg-open'
 alias y='xclip -selection clipboard -in'
 alias p='xclip -selection clipboard -ou'
 alias egit="run emacs --eval '(magit)'"
+alias less="less -R"
 
 if command -v wget >/dev/null; then
 	alias wget='wget -c'
@@ -55,6 +57,13 @@ run() {
 dot() {
   local user=${1:-$(whoami)}; [ $# -gt 0 ] && shift;
   home-manager switch --flake "$XDG_CONFIG_HOME"/nixpkgs#"$user" --impure "$@"
+}
+
+cheat() {
+  local lang="$1";
+  local thing="$2";
+  local answrcnt="${3:-1}"
+  cht.sh "$lang/$thing/$answrcnt" | less -R
 }
 
 r() {
