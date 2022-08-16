@@ -47,6 +47,7 @@
 					./variables.nix
 					./desktop/fonts.nix
 					./desktop/gtk.nix
+          ./desktop/firefox.nix
 					./shell/xdg.nix
 					./desktop/kitty.nix
 					./shell/zsh.nix

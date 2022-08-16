@@ -52,7 +52,7 @@ with lib;
 			tldr cht-sh httpie ncdu jq glances pandoc
 			xdotool entr appimage-run feh fasd cargo
 			direnv shellcheck python cmake binutils coreutils
-			bitwarden-cli watchman
+			bitwarden-cli watchman sageWithDoc aspell
             /* nix-zsh-completions */
 		];
 
