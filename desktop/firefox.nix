@@ -3,8 +3,7 @@
 {
   programs.firefox = {
     enable = true;
-    enableGnomeExtensions = true;
-    package = pkgs.firefox.override { cfg = { enableTridactylNative = true; }; };
+    package = pkgs.firefox.override { cfg = { enableTridactylNative = true; enableGnomeExtensions = true;}; };
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         firenvim
         floccus

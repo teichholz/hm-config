@@ -22,6 +22,10 @@ if command -v wget >/dev/null; then
 	alias wget='wget -c'
 fi
 
+if command -v lazygit >/dev/null; then
+  alias lg='lazygit'
+fi
+
 if command -v a >/dev/null; then
 	alias O='a -e xdg-open' # quick opening files with xdg-open
 	alias e='f -e nvim'
