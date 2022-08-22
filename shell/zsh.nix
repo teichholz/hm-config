@@ -53,6 +53,7 @@ with lib;
 			xdotool entr appimage-run feh fasd cargo
 			direnv shellcheck python cmake binutils coreutils
 			bitwarden-cli watchman sageWithDoc aspell
+      lf lazygit
             /* nix-zsh-completions */
 		];
 
