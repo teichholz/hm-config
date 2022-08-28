@@ -27,6 +27,8 @@
 				./xdg.nix
 				./kitty.nix
 				./zsh.nix
+				./lf.nix
+				./lazygit.nix
 				./nvim.nix
 				./emacs.nix
 				./tmux.nix
