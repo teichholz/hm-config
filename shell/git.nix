@@ -5,7 +5,7 @@ let configDir = builtins.toString (config.variables.dotDir + /config); in
     home.packages = with pkgs; [
       gitAndTools.gh
       gitAndTools.git-open
-      gitAndTools.diff-so-fancy
+      gitAndTools.delta
       act
     ];
 

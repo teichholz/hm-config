@@ -53,8 +53,7 @@ with lib;
 			xdotool entr appimage-run feh fasd cargo
 			direnv shellcheck python cmake binutils coreutils
 			bitwarden-cli watchman sageWithDoc aspell
-      lf lazygit pistol python38Packages.pipx
-            /* nix-zsh-completions */
+      python38Packages.pipx
 		];
 
 		zsh.path = builtins.toString (config.variables.dotDir + /bin);

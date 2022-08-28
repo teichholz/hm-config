@@ -1,0 +1,62 @@
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean
+
+cmd create-file ${{
+  for file in "$@"; do
+    if [[ $file == */ ]]; then
+      mkdir -p $file
+    else
+      touch $file
+    fi
+  done
+}}
+map t push :create-file<space>
+
+cmd change-mode ${{
+  chmod "$@" "$f"
+  lf -remote "send $id reload"
+}}
+
+map D delete
+map <enter> open
+
+cmd fasd_dir ${{
+    res="$(fasd -dl | grep -iv cache | fzf 2>/dev/tty | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ]; then
+        cmd="cd"
+    else
+        cmd="select"
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+map go :fasd_dir
+
+cmd fzf_jump ${{
+    res="$(fd --hidden --follow . $HOME | fzf --header='Jump to location')" 
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+map <c-f> :fzf_jump
+
+cmd go_nix ${{ lf -remote "send $id cd \"$XDG_CONFIG_HOME/nixpkgs\"" }}
+map gn :go_nix
+cmd go_vim ${{ lf -remote "send $id cd \"$XDG_CONFIG_HOME/nvim\"" }}
+map gv :go_vim
+
+cmd open-with %"$@" "$fx"
+map ` push :open-with<space>
+
+map M push :mv-to-folder<space>
+cmd mv-to-folder ${{
+    newd="$1"
+    mkdir -- "$newd"
+    mv -- $fx "$newd"
+}}
+
+map <c-z> $ kill -STOP $PPID
