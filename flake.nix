@@ -53,6 +53,8 @@
 					./shell/xdg.nix
 					./desktop/kitty.nix
 					./shell/zsh.nix
+					./shell/lazygit.nix
+					./shell/lf.nix
 					./editor/nvim.nix
 					./shell/tmux.nix
 					./shell/git.nix
