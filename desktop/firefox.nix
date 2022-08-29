@@ -1,5 +1,9 @@
 { pkgs, ...}:
 
+let assocs = {
+        "x-scheme-handler/http" = [ "firefox.desktop" ];
+        "x-scheme-handler/https" = [ "firefox.desktop" ];
+    }; in
 {
   programs.firefox = {
     enable = true;
@@ -29,12 +33,9 @@
     };
   };
 
-  xdg.desktopEntries.firefox = {
-    name = "Firefox";
-    genericName = "Web Browser";
-    exec = "firefox %U";
-    terminal = false;
-    categories = [ "Application" "Network" "WebBrowser" ];
-    mimeType = [ "text/html" "text/xml" ];
+  zsh.env.BROWSER = "firefox";
+  xdg = {
+			mimeApps.defaultApplications = assocs;
+			mimeApps.associations.added = assocs;
   };
 }

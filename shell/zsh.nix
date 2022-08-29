@@ -100,6 +100,16 @@ with lib;
 					${rcFiles}
 				'';
 
+      "zsh/.zprofile".text = 
+        ''
+          [ -f  "$HOME/.profile" ] && source "$HOME/.profile"
+          if [ -z "$XDG_DATA_DIRS" ]; then 
+            export XDG_DATA_DIRS="$XDG_DATA_HOME:$HOME/.nix-profile/share"
+          else 
+            export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
+          fi
+        '';
+
     };
 
 		home.activation = {

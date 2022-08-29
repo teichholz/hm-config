@@ -2,7 +2,7 @@
 
 let nvimDir = builtins.toString (config.variables.configHome + /nvim); in {
 
-    home.packages = [ pkgs.neovim ];
+    home.packages = [ ];
 
 	zsh.env = {
 		EDITOR="nvim";
