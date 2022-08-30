@@ -56,6 +56,7 @@ with lib;
       python38Packages.pipx
 		];
 
+    programs.nushell.enable = true;
 		zsh.path = builtins.toString (config.variables.dotDir + /bin);
 
 		zsh.rcInit = "source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh";
