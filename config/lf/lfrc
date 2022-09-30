@@ -1,7 +1,7 @@
 set previewer ~/.config/lf/lf_kitty_preview
 set cleaner ~/.config/lf/lf_kitty_clean
 
-cmd create-file ${{
+cmd create-files ${{
   for file in "$@"; do
     if [[ $file == */ ]]; then
       mkdir -p $file

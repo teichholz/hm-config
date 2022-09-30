@@ -39,7 +39,7 @@ bindkey -M viins '^x^l' history-beginning-search-backward-then-append
 
 # FZF
 bindkey '^T' fzf-file-widget
-bindkey '^R' fzf-history-widget
+# bindkey '^R' fzf-history-widget
 
 # FASD
 bindkey '^X^A' fasd-complete
