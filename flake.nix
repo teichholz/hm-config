@@ -52,6 +52,7 @@
           ./desktop/firefox.nix
 					./shell/xdg.nix
 					./desktop/kitty.nix
+					./desktop/gaphor.nix
 					./shell/zsh.nix
 					./shell/lazygit.nix
 					./shell/lf.nix

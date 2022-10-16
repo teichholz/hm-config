@@ -54,6 +54,7 @@ with lib;
 			direnv shellcheck python cmake binutils coreutils
 			bitwarden-cli watchman sageWithDoc aspell
       python38Packages.pipx
+      docker docker-compose
 		];
 
     programs.nushell.enable = true;
