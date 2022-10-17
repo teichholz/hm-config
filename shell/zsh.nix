@@ -54,7 +54,7 @@ with lib;
 			direnv shellcheck python cmake binutils coreutils
 			bitwarden-cli watchman sageWithDoc aspell
       python38Packages.pipx
-      docker docker-compose
+      docker docker-compose editorconfig
 		];
 
     programs.nushell.enable = true;
@@ -105,10 +105,7 @@ with lib;
       "zsh/.zprofile".text = 
         ''
           [ -f  "$HOME/.profile" ] && source "$HOME/.profile"
-          if [ -z "$XDG_DATA_DIRS" ]; then 
-            export XDG_DATA_DIRS="$XDG_DATA_HOME:$HOME/.nix-profile/share"
-          else 
-            export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
+          export XDG_DATA_DIRS="$XDG_DATA_DIRS:$HOME/.nix-profile/share"
           fi
         '';
 

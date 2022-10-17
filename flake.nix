@@ -18,76 +18,77 @@
         system = "x86_64-linux";
         overlays = [ nur.overlay ];
       };
-			lib = pkgs.lib;
-			basics = home: [
-				 home
-				./variables.nix
-				./fonts.nix
-				./gtk.nix
-				./xdg.nix
-				./kitty.nix
-				./zsh.nix
-				./lf.nix
-				./lazygit.nix
-				./nvim.nix
-				./emacs.nix
-				./tmux.nix
-				./git.nix
-			];
-			dev = [
-				./dev/nix.nix
-				./dev/python.nix
-			];
-			writing = [
-			  ./emacs.nix
-			];
-    in {
+      lib = pkgs.lib;
+      basics = home: [
+        home
+        ./variables.nix
+        ./fonts.nix
+        ./gtk.nix
+        ./xdg.nix
+        ./kitty.nix
+        ./zsh.nix
+        ./lf.nix
+        ./lazygit.nix
+        ./nvim.nix
+        ./emacs.nix
+        ./tmux.nix
+        ./git.nix
+      ];
+      dev = [
+        ./dev/nix.nix
+        ./dev/python.nix
+      ];
+      writing = [
+        ./emacs.nix
+      ];
+    in
+    {
       homeConfigurations.tim = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-					./home.nix
-					./variables.nix
-					./desktop/fonts.nix
-					./desktop/gtk.nix
+          ./home.nix
+          ./variables.nix
+          ./desktop/fonts.nix
+          ./desktop/gtk.nix
           ./desktop/firefox.nix
-					./shell/xdg.nix
-					./desktop/kitty.nix
-					./desktop/gaphor.nix
-					./shell/zsh.nix
-					./shell/lazygit.nix
-					./shell/lf.nix
-					./editor/nvim.nix
-					./shell/tmux.nix
-					./shell/git.nix
-					./editor/emacs.nix
-					./dev/node.nix
+          ./shell/xdg.nix
+          ./desktop/kitty.nix
+          ./desktop/gaphor.nix
+          ./shell/zsh.nix
+          ./shell/lazygit.nix
+          ./shell/lf.nix
+          ./editor/nvim.nix
+          ./shell/tmux.nix
+          ./shell/git.nix
+          ./editor/emacs.nix
+          ./dev/node.nix
         ];
-				extraSpecialArgs = {  };
+        extraSpecialArgs = { };
       };
 
       homeConfigurations.tim_work = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-					./home_work.nix
-					./variables.nix
-					./desktop/fonts.nix
-					./desktop/gtk.nix
-					./desktop/firefox.nix
-					./shell/xdg.nix
-					./desktop/kitty.nix
-					./shell/zsh.nix
-					./shell/lazygit.nix
-					./shell/lf.nix
-					./editor/nvim.nix
-					./shell/git.nix
+          ./home_work.nix
+          ./variables.nix
+          ./desktop/fonts.nix
+          ./desktop/gtk.nix
+          ./desktop/firefox.nix
+          ./shell/xdg.nix
+          ./desktop/kitty.nix
+          ./shell/zsh.nix
+          ./shell/lazygit.nix
+          ./shell/lf.nix
+          ./editor/nvim.nix
+          ./shell/git.nix
           {
             zsh.rcInit = ''source $HOME/.nix-profile/etc/profile.d/nix.sh;'';
-	    zsh.env = {
-		TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo"; 
-	    };
+            zsh.env = {
+              TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo";
+            };
           }
         ];
-				extraSpecialArgs = {  };
+        extraSpecialArgs = { };
       };
     };
 }
