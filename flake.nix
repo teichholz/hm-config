@@ -58,6 +58,7 @@
           ./shell/lazygit.nix
           ./shell/lf.nix
           ./shell/rclone.nix
+          ./shell/docker.nix
           ./editor/nvim.nix
           ./shell/tmux.nix
           ./shell/git.nix
