@@ -17,6 +17,7 @@ alias y='xclip -selection clipboard -in'
 alias p='xclip -selection clipboard -ou'
 alias egit="run emacs --eval '(magit)'"
 alias less="less -R"
+alias dc="docker-compose"
 
 if command -v wget >/dev/null; then
 	alias wget='wget -c'
