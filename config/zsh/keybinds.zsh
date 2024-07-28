@@ -39,7 +39,7 @@ bindkey -M viins '^x^l' history-beginning-search-backward-then-append
 
 # FZF
 bindkey '^T' fzf-file-widget
-# bindkey '^R' fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 # FASD
 bindkey '^X^A' fasd-complete
@@ -57,4 +57,4 @@ bindkey -s '^[7' '^A^F^F^F^F^F^F'
 bindkey -s '^[8' '^A^F^F^F^F^F^F^F'
 
 # vim with fzf
-bindkey -s '^V' 'nvim $(fzf)^M'
+bindkey -s '^V' 'nvim $(fzf --preview="bat {}")^M'

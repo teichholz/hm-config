@@ -9,6 +9,14 @@ if command -v fasd > /dev/null; then
 	_cache fasd --init auto
 fi 
 
+if command -v op > /dev/null; then
+  eval "$(op completion zsh)"; compdef _op op
+  source /Users/t.eichholz/.config/op/plugins.sh
+  # OP Openai Reference
+  export OPENAI_API_KEY="op://Personal/OpenAI/Anmeldedaten"
+fi 
+
+export EDITOR=nvim
 
 # zsh-vi-mode
 export ZVM_INIT_MODE=sourcing
@@ -23,7 +31,15 @@ if command -v fd >/dev/null; then
 	export FZF_DEFAULT_COMMAND="fd ."
 	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+	export FZF_COMPLETION_TRIGGER="**"
+  export FZF_COMPLETION_OPTS='--border --info=inline'
 fi
+
+# go
+if command -v go > /dev/null; then
+	export PATH="$HOME/go/bin:$PATH"
+fi
+
 
 ## General
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -56,7 +72,7 @@ SAVEHIST=10000                    # Max events to store in history file.
 
 setopt BANG_HIST                 # Don't treat '!' specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt APPEND_HISTORY            # Appends history to history file on exit
+setopt APPENDHISTORY            # Appends history to history file on exit
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
@@ -71,6 +87,7 @@ setopt HIST_BEEP                 # Beep when accessing non-existent history.
 ## Directories
 DIRSTACKSIZE=9
 setopt AUTO_CD              # Auto changes to a directory without typing cd.
+cdpath=($HOME/git)
 setopt AUTO_PUSHD           # Push the old directory onto the stack on cd.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.

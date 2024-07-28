@@ -4,7 +4,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias -- -='cd -'
 
-alias q=exit
+# alias q=exit
 alias clr=clear
 alias sudo='sudo '
 alias rm='rm -i'
@@ -12,12 +12,33 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias nr='sudo nixos-rebuild'
-alias o='xdg-open'
-alias y='xclip -selection clipboard -in'
-alias p='xclip -selection clipboard -ou'
 alias egit="run emacs --eval '(magit)'"
 alias less="less -R"
 alias dc="docker-compose"
+
+alias teich-up="wakeonlan 40:b0:34:f3:d4:00"
+alias teich-ssh="ssh tim@teichserver"
+
+alias lman="man -M $HOME/ubuntu-man/"
+
+# ai pair programming
+alias aider="python3 -m aider.main"
+
+
+if command -v nvim >/dev/null; then
+	alias vim='nvim'
+	alias vi='nvim'
+fi
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  alias o='open'
+  alias y=pbcopy
+  alias p=pbpaste
+else
+  alias o='xdg-open'
+  alias y=xclip -selection clipboard -in
+  alias p=xclip -selection clipboard -ou
+fi
 
 if command -v wget >/dev/null; then
 	alias wget='wget -c'
@@ -25,6 +46,18 @@ fi
 
 if command -v lazygit >/dev/null; then
   alias lg='lazygit'
+fi
+
+if command -v lazydocker >/dev/null; then
+  alias lzd='lazydocker'
+fi
+
+if command -v python >/dev/null; then
+  alias py='python'
+fi
+
+if command -v python3 >/dev/null; then
+  alias py='python3'
 fi
 
 if command -v a >/dev/null; then
@@ -57,11 +90,6 @@ ig() {
 
 run() {
   ig $* &
-}
-
-dot() {
-  local user=${1:-$(whoami)}; [ $# -gt 0 ] && shift;
-  home-manager switch --flake "$XDG_CONFIG_HOME"/nixpkgs#"$user" --impure "$@"
 }
 
 cheat() {

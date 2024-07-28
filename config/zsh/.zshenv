@@ -19,4 +19,8 @@ function _source {
   done
 }
 
-_source $ZDOTDIR/.p10k.zsh
+# XDG conventions
+export XDG_CACHE_HOME="$HOME/.cache"
+export ZSH_CACHE="$XDG_CACHE_HOME"
+
+. "$HOME/.cargo/env"
